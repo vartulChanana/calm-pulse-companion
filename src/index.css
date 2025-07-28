@@ -184,4 +184,13 @@ All colors MUST be HSL.
   .hover-glow {
     @apply transition-smooth hover:shadow-glow;
   }
+
+  /* Text clamp utilities */
+  .line-clamp-3 {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+}
 }
