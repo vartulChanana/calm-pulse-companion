@@ -76,13 +76,26 @@ const Auth = () => {
     setIsLoading(false);
   };
 
+  // Demo access for testing
+  const handleDemoAccess = () => {
+    setFormData({
+      email: 'demo@mindful.app',
+      password: 'demo123',
+      displayName: 'Demo User'
+    });
+    toast({
+      title: "Demo Mode",
+      description: "Use these credentials to explore the app!"
+    });
+  };
+
   return (
-    <div className="min-h-screen bg-gradient-subtle flex items-center justify-center p-4">
+    <div className="min-h-screen bg-gradient-subtle flex items-center justify-center p-4 animate-fade-in">
       <div className="w-full max-w-md space-y-6">
         {/* Header */}
-        <div className="text-center space-y-2">
+        <div className="text-center space-y-2 animate-scale-in">
           <div className="flex items-center justify-center gap-2">
-            <div className="p-2 gradient-peaceful rounded-xl">
+            <div className="p-2 gradient-peaceful rounded-xl animate-float cursor-pointer">
               <Heart className="h-6 w-6 text-white" />
             </div>
             <h1 className="text-2xl font-semibold text-foreground">Mindful</h1>
@@ -90,15 +103,26 @@ const Auth = () => {
           <p className="text-muted-foreground">Your Mental Health Companion</p>
         </div>
 
+        {/* Demo Access */}
+        <Card className="glass-card p-4 animate-slide-up">
+          <Button 
+            onClick={handleDemoAccess}
+            variant="outline"
+            className="w-full cursor-pointer hover-bounce"
+          >
+            Try Demo (No registration needed)
+          </Button>
+        </Card>
+
         {/* Auth Form */}
-        <Card className="glass-card p-6">
+        <Card className="glass-card p-6 animate-slide-up hover-shine">
           <Tabs defaultValue="signin" className="w-full">
-            <TabsList className="grid w-full grid-cols-2">
-              <TabsTrigger value="signin">Sign In</TabsTrigger>
-              <TabsTrigger value="signup">Sign Up</TabsTrigger>
+            <TabsList className="grid w-full grid-cols-2 glass-subtle">
+              <TabsTrigger value="signin" className="cursor-pointer">Sign In</TabsTrigger>
+              <TabsTrigger value="signup" className="cursor-pointer">Sign Up</TabsTrigger>
             </TabsList>
             
-            <TabsContent value="signin" className="space-y-4">
+            <TabsContent value="signin" className="space-y-4 animate-fade-in">
               <form onSubmit={handleSignIn} className="space-y-4">
                 <div className="space-y-2">
                   <Label htmlFor="signin-email">Email</Label>
@@ -109,6 +133,7 @@ const Auth = () => {
                     placeholder="Enter your email"
                     value={formData.email}
                     onChange={handleInputChange}
+                    className="cursor-pointer"
                     required
                   />
                 </div>
@@ -121,12 +146,13 @@ const Auth = () => {
                     placeholder="Enter your password"
                     value={formData.password}
                     onChange={handleInputChange}
+                    className="cursor-pointer"
                     required
                   />
                 </div>
                 <Button 
                   type="submit" 
-                  className="w-full hover-glow" 
+                  className="w-full hover-glow cursor-pointer hover-bounce" 
                   disabled={isLoading}
                 >
                   {isLoading ? (
@@ -141,7 +167,7 @@ const Auth = () => {
               </form>
             </TabsContent>
             
-            <TabsContent value="signup" className="space-y-4">
+            <TabsContent value="signup" className="space-y-4 animate-fade-in">
               <form onSubmit={handleSignUp} className="space-y-4">
                 <div className="space-y-2">
                   <Label htmlFor="signup-name">Display Name</Label>
@@ -152,6 +178,7 @@ const Auth = () => {
                     placeholder="Choose a display name"
                     value={formData.displayName}
                     onChange={handleInputChange}
+                    className="cursor-pointer"
                   />
                 </div>
                 <div className="space-y-2">
@@ -163,6 +190,7 @@ const Auth = () => {
                     placeholder="Enter your email"
                     value={formData.email}
                     onChange={handleInputChange}
+                    className="cursor-pointer"
                     required
                   />
                 </div>
@@ -175,12 +203,13 @@ const Auth = () => {
                     placeholder="Choose a password"
                     value={formData.password}
                     onChange={handleInputChange}
+                    className="cursor-pointer"
                     required
                   />
                 </div>
                 <Button 
                   type="submit" 
-                  className="w-full hover-glow" 
+                  className="w-full hover-glow cursor-pointer hover-bounce" 
                   disabled={isLoading}
                 >
                   {isLoading ? (
@@ -198,7 +227,7 @@ const Auth = () => {
         </Card>
 
         {/* Info */}
-        <Card className="glass-card p-4">
+        <Card className="glass-card p-4 animate-fade-in hover-lift cursor-pointer">
           <p className="text-sm text-muted-foreground text-center">
             Your privacy and security are our top priorities. All data is encrypted and secure.
           </p>

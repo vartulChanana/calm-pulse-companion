@@ -46,13 +46,13 @@ const Dashboard = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-subtle">
+    <div className="min-h-screen bg-gradient-subtle animate-fade-in">
       {/* Header */}
-      <header className="sticky top-0 z-40 glass-subtle border-b border-border/30">
+      <header className="sticky top-0 z-40 glass-subtle border-b border-border/30 animate-slide-up">
         <div className="container mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3">
-              <div className="p-2 gradient-peaceful rounded-xl">
+              <div className="p-2 gradient-peaceful rounded-xl animate-float cursor-pointer">
                 <Heart className="h-6 w-6 text-white" />
               </div>
               <div>
@@ -62,9 +62,9 @@ const Dashboard = () => {
             </div>
             <div className="flex items-center gap-4">
               <div className="hidden md:block">
-                <Button variant="ghost" size="sm">Menu</Button>
+                <Button variant="ghost" size="sm" className="cursor-pointer hover-bounce">Menu</Button>
               </div>
-              <Button variant="ghost" size="icon" onClick={handleSignOut}>
+              <Button variant="ghost" size="icon" onClick={handleSignOut} className="cursor-pointer hover-bounce">
                 <LogOut className="h-4 w-4" />
               </Button>
             </div>
@@ -74,8 +74,8 @@ const Dashboard = () => {
 
       <main className="container mx-auto px-4 pb-24">
         {/* Hero Section */}
-        <section className="py-8">
-          <div className="relative overflow-hidden rounded-3xl max-w-4xl mx-auto">
+        <section className="py-8 animate-scale-in">
+          <div className="relative overflow-hidden rounded-3xl max-w-4xl mx-auto hover-shine cursor-grab">
             <img 
               src={heroMeditation} 
               alt="Peaceful meditation scene"
@@ -84,11 +84,11 @@ const Dashboard = () => {
             <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/20 to-transparent" />
             <div className="absolute inset-0 flex items-center justify-center">
               <div className="text-center space-y-3 text-white">
-                <h2 className="text-3xl md:text-4xl font-bold animate-fade-in">
+                <h2 className="text-3xl md:text-4xl font-bold animate-bounce-gentle">
                   Welcome Back
                 </h2>
-                <p className="text-lg opacity-90">{currentDate}</p>
-                <Badge className="bg-white/20 text-white border-white/30 backdrop-blur-sm">
+                <p className="text-lg opacity-90 animate-fade-in">{currentDate}</p>
+                <Badge className="bg-white/20 text-white border-white/30 backdrop-blur-sm animate-pulse-slow">
                   <Sparkles className="h-3 w-3 mr-1" />
                   Your safe space for mental wellness
                 </Badge>
@@ -97,7 +97,7 @@ const Dashboard = () => {
           </div>
           
           {/* Daily Quote */}
-          <Card className="glass-card p-6 max-w-2xl mx-auto mt-6">
+          <Card className="glass-card p-6 max-w-2xl mx-auto mt-6 hover-lift animate-fade-in cursor-pointer">
             <div className="text-center">
               <p className="text-foreground italic leading-relaxed">
                 "{randomQuote}"
@@ -110,40 +110,40 @@ const Dashboard = () => {
         </section>
 
         {/* Main Dashboard */}
-        <section className="py-8">
+        <section className="py-8 animate-slide-up">
           <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
-            <TabsList className="grid w-full grid-cols-4 mb-8">
-              <TabsTrigger value="mood" className="flex items-center gap-2">
+            <TabsList className="grid w-full grid-cols-4 mb-8 glass-card">
+              <TabsTrigger value="mood" className="flex items-center gap-2 cursor-pointer hover-bounce">
                 <Calendar className="h-4 w-4" />
                 Mood
               </TabsTrigger>
-              <TabsTrigger value="journal" className="flex items-center gap-2">
+              <TabsTrigger value="journal" className="flex items-center gap-2 cursor-pointer hover-bounce">
                 <BookOpen className="h-4 w-4" />
                 Journal
               </TabsTrigger>
-              <TabsTrigger value="community" className="flex items-center gap-2">
+              <TabsTrigger value="community" className="flex items-center gap-2 cursor-pointer hover-bounce">
                 <Users className="h-4 w-4" />
                 Community
               </TabsTrigger>
-              <TabsTrigger value="stats" className="flex items-center gap-2">
+              <TabsTrigger value="stats" className="flex items-center gap-2 cursor-pointer hover-bounce">
                 <BarChart3 className="h-4 w-4" />
                 Insights
               </TabsTrigger>
             </TabsList>
 
-            <TabsContent value="mood" className="space-y-6">
+            <TabsContent value="mood" className="space-y-6 animate-fade-in">
               <MoodTracker />
             </TabsContent>
 
-            <TabsContent value="journal" className="space-y-6">
+            <TabsContent value="journal" className="space-y-6 animate-fade-in">
               <JournalList />
             </TabsContent>
 
-            <TabsContent value="community" className="space-y-6">
+            <TabsContent value="community" className="space-y-6 animate-fade-in">
               <CommunityFeed />
             </TabsContent>
 
-            <TabsContent value="stats" className="space-y-6">
+            <TabsContent value="stats" className="space-y-6 animate-fade-in">
               <StatsOverview />
             </TabsContent>
           </Tabs>

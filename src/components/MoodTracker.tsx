@@ -55,16 +55,16 @@ export const MoodTracker = () => {
                   key={index}
                   onClick={() => handleMoodSelect(index)}
                   className={`
-                    p-4 rounded-2xl transition-all duration-300 border-2
+                    p-4 rounded-2xl transition-all duration-300 border-2 cursor-pointer hover-bounce
                     ${selectedMood === index 
-                      ? 'border-primary shadow-glow scale-110' 
+                      ? 'border-primary shadow-glow scale-110 animate-pulse-slow' 
                       : 'border-transparent hover:scale-105'
                     }
                     ${mood.color}
                     hover:shadow-soft
                   `}
                 >
-                  <div className="text-4xl mb-2 animate-gentle-pulse">
+                  <div className="text-4xl mb-2 animate-float">
                     {mood.emoji}
                   </div>
                   <div className="text-sm font-medium text-foreground">
