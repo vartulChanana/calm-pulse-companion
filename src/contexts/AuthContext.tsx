@@ -27,21 +27,44 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // Set up auth state listener
-    const { data: { subscription } } = supabase.auth.onAuthStateChange(
-      (event, session) => {
+    // Check for existing session first
+    const initializeAuth = async () => {
+      try {
+        // Check if we have auth tokens in the URL hash (from email verification)
+        if (window.location.hash) {
+          console.log('Found URL hash, processing auth...'); // Debug log
+        }
+        
+        const { data: { session }, error } = await supabase.auth.getSession();
+        if (error) {
+          console.error('Error getting session:', error);
+        }
+        console.log('Initial session:', session); // Debug log
         setSession(session);
         setUser(session?.user ?? null);
         setLoading(false);
+      } catch (error) {
+        console.error('Error initializing auth:', error);
+        setLoading(false);
+      }
+    };
+
+    initializeAuth();
+
+    // Set up auth state listener
+    const { data: { subscription } } = supabase.auth.onAuthStateChange(
+      async (event, session) => {
+        console.log('Auth state changed:', event, session); // Debug log
+        setSession(session);
+        setUser(session?.user ?? null);
+        setLoading(false);
+        
+        // Clear URL hash after successful auth
+        if (session && window.location.hash) {
+          window.history.replaceState({}, document.title, window.location.pathname);
+        }
       }
     );
-
-    // Check for existing session
-    supabase.auth.getSession().then(({ data: { session } }) => {
-      setSession(session);
-      setUser(session?.user ?? null);
-      setLoading(false);
-    });
 
     return () => subscription.unsubscribe();
   }, []);

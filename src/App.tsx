@@ -8,6 +8,7 @@ import ProtectedRoute from "@/components/ProtectedRoute";
 import Dashboard from "./pages/Dashboard";
 import Auth from "./pages/Auth";
 import NotFound from "./pages/NotFound";
+import { AuthDebug } from "@/components/AuthDebug";
 
 const queryClient = new QueryClient();
 
@@ -17,6 +18,7 @@ const App = () => (
       <AuthProvider>
         <Toaster />
         <Sonner />
+        <AuthDebug />
         <BrowserRouter>
           <Routes>
             <Route path="/auth" element={<Auth />} />
