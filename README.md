@@ -1,73 +1,105 @@
-# Welcome to your Lovable project
+# Calm Pulse Companion
 
-## Project info
+A modern, responsive web application designed to assist users in managing emotional and mental well-being.
 
-**URL**: https://lovable.dev/projects/298032ec-8faf-418f-b4f5-71a0812931ad
+## 🌐 Live Demo
 
-## How can I edit this code?
+🔗 : https://calm-pulse-companion.vercel.app
 
-There are several ways of editing your application.
+## 🚀 Tech Stack
 
-**Use Lovable**
+- **Vite** – Fast development and build tool
+- **React** – Modern UI library
+- **TypeScript** – Type-safe development
+- **Tailwind CSS** – Utility-first CSS framework
+- **shadcn/ui** – Accessible, modern UI components
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/298032ec-8faf-418f-b4f5-71a0812931ad) and start prompting.
+## ✨ Features
 
-Changes made via Lovable will be committed automatically to this repo.
+- Beautiful, modern UI with smooth animations
+- Fully responsive across all devices
+- Dark mode support
+- Component-based architecture
+- Lightning-fast build and reload times
+- Utility-first design system with Tailwind CSS
 
-**Use your preferred IDE**
+## 📁 Getting Started
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+To set up and run this project locally:
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+```bash
+# Clone the repository
+git clone https://github.com/your-username/calm-pulse-companion.git
 
-Follow these steps:
+# Navigate to the project directory
+cd calm-pulse-companion
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+# Install dependencies
+npm install
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
+# Start the development server
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+> Make sure Node.js and npm are installed. Recommended: Use [nvm](https://github.com/nvm-sh/nvm#installing-and-updating) for version management.
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+## 🚀 Deployment
 
-**Use GitHub Codespaces**
+This project is deployed on **Vercel**.
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+🔗 [https://calm-pulse-companion.vercel.app/](https://calm-pulse-companion.vercel.app/)
 
-## What technologies are used for this project?
+To deploy your own version:
 
-This project is built with:
+1. Push the code to a GitHub repository.
+2. Go to [https://vercel.com](https://vercel.com) and import the GitHub repo.
+3. Set build settings if needed (Vite + npm).
+4. Click **Deploy** and you're live!
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+## 🌍 Custom Domain Setup (on Vercel)
 
-## How can I deploy this project?
+Want your own `.com` or `.dev` domain?
 
-Simply open [Lovable](https://lovable.dev/projects/298032ec-8faf-418f-b4f5-71a0812931ad) and click on Share -> Publish.
+1. Go to your project in the [Vercel Dashboard](https://vercel.com/dashboard).
+2. Click on your project → **Settings** → **Domains**
+3. Click **Add Domain**
+4. Enter your custom domain and follow the DNS instructions.
 
-## Can I connect a custom domain to my Lovable project?
+📘 [Full Guide – Vercel Docs](https://vercel.com/docs/concepts/projects/custom-domains)
 
-Yes, you can!
+## 📝 License
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+MIT License
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+```
+MIT License
+
+Copyright (c) 2025 Vartul
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights  
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell     
+copies of the Software, and to permit persons to whom the Software is         
+furnished to do so, subject to the following conditions:                       
+
+The above copyright notice and this permission notice shall be included in    
+all copies or substantial portions of the Software.                           
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR    
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,      
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE   
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER        
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, 
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN     
+THE SOFTWARE.
+```
+
+## 🙌 Acknowledgements
+
+- [React](https://reactjs.org/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [Tailwind CSS](https://tailwindcss.com/)
+- [shadcn/ui](https://ui.shadcn.com/)
+- [Vite](https://vitejs.dev/)
+- [Vercel](https://vercel.com/)
