@@ -11,7 +11,6 @@ import StatsOverview from '@/components/StatsOverview';
 import { Navigation } from '@/components/Navigation';
 import { 
   Heart, 
-  LogOut,
   Calendar,
   BookOpen,
   Users,
@@ -21,7 +20,7 @@ import {
 import heroMeditation from '@/assets/hero-meditation.jpg';
 
 const Dashboard = () => {
-  const { user, signOut } = useAuth();
+  const { user } = useAuth();
   const [activeTab, setActiveTab] = useState('mood');
   
   const currentDate = new Date().toLocaleDateString('en-US', { 
@@ -41,33 +40,25 @@ const Dashboard = () => {
 
   const randomQuote = inspirationalQuotes[Math.floor(Math.random() * inspirationalQuotes.length)];
 
-  const handleSignOut = async () => {
-    await signOut();
-  };
 
   return (
-    <div className="min-h-screen bg-gradient-subtle animate-fade-in">
+    <div className="min-h-screen bg-gradient-to-br from-background via-muted/30 to-secondary/20 animate-fade-in">
       {/* Header */}
       <header className="sticky top-0 z-40 glass-subtle border-b border-border/30 animate-slide-up">
         <div className="container mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3">
-              <div className="p-2 gradient-peaceful rounded-xl animate-float cursor-pointer">
+              <div className="p-3 bg-gradient-to-r from-primary to-primary-glow rounded-xl animate-float shadow-glow">
                 <Heart className="h-6 w-6 text-white" />
               </div>
               <div>
                 <h1 className="text-xl font-semibold text-foreground">Mindful</h1>
-                <p className="text-xs text-muted-foreground">Welcome back, {user?.email}</p>
+                <p className="text-xs text-muted-foreground">
+                  Welcome back, {user?.email?.split('@')[0] || 'User'}
+                </p>
               </div>
             </div>
-            <div className="flex items-center gap-4">
-              <div className="hidden md:block">
-                <Button variant="ghost" size="sm" className="cursor-pointer hover-bounce">Menu</Button>
-              </div>
-              <Button variant="ghost" size="icon" onClick={handleSignOut} className="cursor-pointer hover-bounce">
-                <LogOut className="h-4 w-4" />
-              </Button>
-            </div>
+            <Navigation activeSection={activeTab} onSectionChange={setActiveTab} />
           </div>
         </div>
       </header>
@@ -75,7 +66,7 @@ const Dashboard = () => {
       <main className="container mx-auto px-4 pb-24">
         {/* Hero Section */}
         <section className="py-8 animate-scale-in">
-          <div className="relative overflow-hidden rounded-3xl max-w-4xl mx-auto hover-shine cursor-grab">
+          <div className="relative overflow-hidden rounded-3xl max-w-4xl mx-auto shadow-glow">
             <img 
               src={heroMeditation} 
               alt="Peaceful meditation scene"
@@ -97,7 +88,7 @@ const Dashboard = () => {
           </div>
           
           {/* Daily Quote */}
-          <Card className="glass-card p-6 max-w-2xl mx-auto mt-6 hover-lift animate-fade-in cursor-pointer">
+          <Card className="glass-card p-6 max-w-2xl mx-auto mt-6 hover-lift animate-fade-in border-primary/20">
             <div className="text-center">
               <p className="text-foreground italic leading-relaxed">
                 "{randomQuote}"
@@ -112,38 +103,50 @@ const Dashboard = () => {
         {/* Main Dashboard */}
         <section className="py-8 animate-slide-up">
           <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
-            <TabsList className="grid w-full grid-cols-4 mb-8 glass-card">
-              <TabsTrigger value="mood" className="flex items-center gap-2 cursor-pointer hover-bounce">
+            <TabsList className="grid w-full grid-cols-4 mb-8 glass-card shadow-soft">
+              <TabsTrigger 
+                value="mood" 
+                className="flex items-center gap-2 transition-all duration-300 data-[state=active]:bg-primary data-[state=active]:text-primary-foreground"
+              >
                 <Calendar className="h-4 w-4" />
                 Mood
               </TabsTrigger>
-              <TabsTrigger value="journal" className="flex items-center gap-2 cursor-pointer hover-bounce">
+              <TabsTrigger 
+                value="journal" 
+                className="flex items-center gap-2 transition-all duration-300 data-[state=active]:bg-primary data-[state=active]:text-primary-foreground"
+              >
                 <BookOpen className="h-4 w-4" />
                 Journal
               </TabsTrigger>
-              <TabsTrigger value="community" className="flex items-center gap-2 cursor-pointer hover-bounce">
+              <TabsTrigger 
+                value="community" 
+                className="flex items-center gap-2 transition-all duration-300 data-[state=active]:bg-primary data-[state=active]:text-primary-foreground"
+              >
                 <Users className="h-4 w-4" />
                 Community
               </TabsTrigger>
-              <TabsTrigger value="stats" className="flex items-center gap-2 cursor-pointer hover-bounce">
+              <TabsTrigger 
+                value="stats" 
+                className="flex items-center gap-2 transition-all duration-300 data-[state=active]:bg-primary data-[state=active]:text-primary-foreground"
+              >
                 <BarChart3 className="h-4 w-4" />
                 Insights
               </TabsTrigger>
             </TabsList>
 
-            <TabsContent value="mood" className="space-y-6 animate-fade-in">
+            <TabsContent value="mood" id="mood" className="space-y-6 animate-fade-in">
               <MoodTracker />
             </TabsContent>
 
-            <TabsContent value="journal" className="space-y-6 animate-fade-in">
+            <TabsContent value="journal" id="journal" className="space-y-6 animate-fade-in">
               <JournalList />
             </TabsContent>
 
-            <TabsContent value="community" className="space-y-6 animate-fade-in">
+            <TabsContent value="community" id="community" className="space-y-6 animate-fade-in">
               <CommunityFeed />
             </TabsContent>
 
-            <TabsContent value="stats" className="space-y-6 animate-fade-in">
+            <TabsContent value="stats" id="stats" className="space-y-6 animate-fade-in">
               <StatsOverview />
             </TabsContent>
           </Tabs>
